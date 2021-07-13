@@ -1,6 +1,21 @@
 # HackerRank_Algorithm_Solution
 This repo gives a guide and work flow on hackerRank Algorithm from simple to complex, it gives sudo code solution and code solution written in Kotlin
 
+
+
+## Solve Me First
+
+### Description
+https://www.hackerrank.com/challenges/solve-me-first/problem
+
+### Solution
+
+```
+fun solveMeFirst(a: Int, b: Int): Int {
+    return a + b
+}
+```
+
 ## Simple Array Sum
 
 ### Description
@@ -13,6 +28,26 @@ fun simpleArraySum(ar: Array<Int>): Int {
      var sum : Int = 0
      for(i in ar ) sum += i
      return sum
+}
+```
+## Compare the Triplet
+
+### Description
+https://www.hackerrank.com/challenges/compare-the-triplets/problem
+
+### Solution
+```
+fun compareTriplets(a: Array<Int>, b: Array<Int>): Array<Int> {
+        var up : Int = 0
+        var down : Int = 0
+        for (i in a.indices){
+            when {
+                a[i] > b[i] -> up++
+                b[i] > a[i] -> down++
+            }
+        }
+        return arrayOf(up,down)
+
 }
 ```
 
@@ -28,6 +63,32 @@ fun aVeryBigSum(ar: Array<Long>): Long {
   var Bigsum : Long = 0;
 for(i in ar) Bigsum += i
 return Bigsum
+}
+```
+## Diagonal Difference
+
+### Description
+https://www.hackerrank.com/challenges/diagonal-difference/problem
+
+### Solution
+```
+
+fun diagonalDifference(arr: Array<Array<Int>>): Int {
+    // Write your code here
+    var left2Right = 0
+        var right2Left = 0
+        var first = 0
+        var second = 0
+        var fourth = arr.size -1
+        for (i in arr.indices) {
+            left2Right += arr[first][second]
+            right2Left += arr[first][fourth]
+            first++
+            second++
+            fourth--
+        }
+        return Math.abs(left2Right - right2Left)
+
 }
 ```
 
@@ -59,6 +120,20 @@ fun plusMinus(arr: Array<Int>): Unit {
 } 
 ```
 
+## Staircase
+### Description
+https://www.hackerrank.com/challenges/staircase/problem
+
+### Solution
+```
+fun staircase(n: Int): Unit {
+  for (i in 1..n) {
+            print(" ".repeat((n - i)) + "#".repeat(i))
+            println()
+        }
+
+}
+```
 ## Mini-Max Sum
 
 ### Description
@@ -103,7 +178,40 @@ fun birthdayCakeCandles(candles: Array<Int>): Int {
 }
 ```
 
-## Grading Students
+## Time Conversion
+### Description
+https://www.hackerrank.com/challenges/time-conversion/problem
+### Solution
+
+```
+fun timeConversion(s: String): String {
+                var timeFormat : String = s.takeLast(2)
+                var time: String = s.take(8)
+                var (hr,min,sec) = time.split(":")
+                var calhr = hr.toInt()
+               return  when{
+                      timeFormat == "PM" -> {
+                            if(hr == "12"){ 
+                              "${hr}:${min}:${sec}"
+                              }else {
+                                  calhr += 12
+                                "${calhr}:${min}:${sec}"
+                              }
+                      }
+                      else ->{
+                              if(hr == "12") {
+                              "00:${min}:${sec}"
+                              } else{
+                                "${hr}:${min}:${sec}"
+                              }
+
+                      }
+
+                }
+}
+```
+
+## Grading Student
 
 ### Description
 https://www.hackerrank.com/challenges/grading/problem
@@ -166,8 +274,19 @@ if( v1 > v2 && ((x1 - x2) % (v2 -v1) == 0 )) return "YES" else return "NO"
 
 }
 ```
+## Between Two Sets
 
-## Breaking the Records
+### Description
+https://www.hackerrank.com/challenges/between-two-sets/problem
+
+## Solution
+```
+fun getTotalX(a: Array<Int>, b: Array<Int>): Int {  
+return  (a.last()..b.first() step a.last()).count { num -> a.all{num % it == 0} && b.all{it % num == 0 } }
+}
+```
+
+## BreakingBreaking the Records
 
 ### Description
 https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem
@@ -251,6 +370,25 @@ fun migratoryBirds(arr: Array<Int>): Int {
         return arr.sorted().groupingBy { it }.eachCount().maxBy { it.value }!!.key 
 }
 ```
+## Day of the Programmer
+
+### Description
+https://www.hackerrank.com/challenges/day-of-the-programmer/problem
+
+### Solution
+```
+fun dayOfProgrammer(year: Int): String {
+
+  if(year in 1700..1917 && year % 4 == 0) return "12.09.$year"
+               else if(year in 1919..2700) {
+                   if(year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)){
+                      return  "12.09.$year"
+                   }else return  "13.09.$year" }
+                else if(year == 1918) return  "26.09.1918"
+                else return  "13.09.$year"
+}
+```
+
 
 ## Bill Division
 
@@ -286,6 +424,13 @@ fun sockMerchant(n: Int, ar: Array<Int>): Int {
    return count
 
 }
+```
+
+## Drawing Book
+
+### Description 
+## Solution 
+```
 ```
 
 ## CamelCase
@@ -385,7 +530,7 @@ fun funnyString(s: String): String {
 ## Non-Divisible Subset
 
 ### Description 
-https://www.hackerrank.com/challenges/non-divisible-subset/problem?h_r=internal-search
+https://www.hackerrank.com/challenges/non-divisible-subset/problem
 
 ## Solution
 ```

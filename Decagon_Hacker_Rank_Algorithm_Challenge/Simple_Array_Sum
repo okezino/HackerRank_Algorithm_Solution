@@ -1,0 +1,14 @@
+## Simple Array Sum
+
+### Description
+https://www.hackerrank.com/challenges/simple-array-sum/problem
+
+### Solution
+```
+fun simpleArraySum(ar: Array<Int>): Int {
+    // Write your code here
+     var sum : Int = 0
+     for(i in ar ) sum += i
+     return sum
+}
+```
