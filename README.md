@@ -561,3 +561,116 @@ return count
 }
 ```
 
+## Separate the Numbers
+
+### Description
+https://www.hackerrank.com/challenges/separate-the-numbers/problem
+
+## Solution
+```
+fun separateNumbers(s: String): Unit {
+    // Write your code here
+     var result = "NO"
+
+    if (s[0] != '0'){
+        var size = s.length / 2
+        var digit = 1
+        var first : Long = (s[0].toInt() - 48).toLong()
+        var second = ""
+
+
+
+
+        loo@ while (first.toString().length <= size) {
+            second = ""
+            var third = (first).toString()
+            var forth = (first).toString()
+            while (third.length < s.length) {
+                first++
+
+                third += (first).toString()
+
+
+                if (third == s) {
+                    result = "YES $forth"
+                    break@loo
+                    return
+                }
+            }
+
+            for (i in 0..digit) {
+                second += s[i]
+            }
+            digit++
+            first = second.toLong()
+
+
+        }
+    }
+
+
+    println(result)
+
+}
+```
+## Mars Exploration
+
+### Description
+https://www.hackerrank.com/challenges/mars-exploration/problem
+
+## Solution
+```
+fun marsExploration(s: String): Int {
+    // Write your code here
+    var count = 0
+        var countMars = 0
+
+        for (i in s){
+
+            when(count){
+                0 -> {
+                    count = 1
+                    if(i != 'S') countMars++
+
+                }
+                1 -> {
+                    count = 2
+                    if(i != 'O') countMars++
+
+                }
+                2 -> {
+                    count = 0
+                    if(i != 'S') countMars++
+                    
+                }
+            }
+        }
+
+        return countMars
+}
+```
+
+## Gemstones
+
+## Description
+https://www.hackerrank.com/challenges/gem-stones/problem
+
+```
+fun gemstones(arr: Array<String>): Int {
+    // Write your code here
+var str = arrayListOf<Char>()
+    var ununique = ""
+
+    for(i in arr[0]) if(!str.contains(i)) str.add(i)
+
+    for(i in 1..arr.lastIndex){
+        for(j in str) if(!arr[i].contains(j)) ununique +=j
+    }
+    for (i in ununique ) str.remove(i)
+    
+    return str.size
+}
+```
+
+
+
