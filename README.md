@@ -672,5 +672,47 @@ var str = arrayListOf<Char>()
 }
 ```
 
+## Unique Paths
+## Description
+https://leetcode.com/problems/unique-paths/
+### Dynamic Programming
+
+```
+class Solution {
+    fun uniquePaths(m: Int, n: Int, hashMap: HashMap<String, Int> = HashMap()): Int {
+        
+        val key = "$m,$n"
+        if(key in hashMap.keys) return hashMap[key]!!
+        if(m == 1 && n == 1)  return 1
+        if(m == 0 || n == 0 ) return 0
+        
+        hashMap[key] = uniquePaths(m - 1, n, hashMap) + uniquePaths(m , n - 1, hashMap )
+        
+        return hashMap[key]!!
+        
+    }
+}
+```
+
+## Fibonacci
+## Description
+https://leetcode.com/problems/fibonacci-number/
+
+### Dynamic Programming
+```
+class Solution {
+    fun fib(n: Int, hashMap : HashMap<Int,Int> = HashMap()): Int {
+        
+       if(n in hashMap.keys)  return  hashMap[n]!!  
+       if(n == 0) return 0
+        if(n <= 2) return 1
+        
+       hashMap[n] =   fib(n - 1, hashMap) + fib(n - 2, hashMap)
+       
+       return hashMap[n]!!
+        
+    }
+}
+```
 
 
